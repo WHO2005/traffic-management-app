@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kigali Traffic Management System - Violations</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <h1>Kigali Traffic Management System</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="monitoring.html">Monitoring</a></li>
+                        <li><a href="route-planner.html">Route Planner</a></li>
+                        <li><a href="analytics.html">Analytics</a></li>
+                        <li><a href="violations.html">Violations</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li id="authLink"><a href="login.html">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <div class="container">
+                <section id="violations">
+                    <h2>Traffic Violations</h2>
+                    <div class="violations-controls">
+                        <div class="form-group">
+                            <label for="violation-date-range">Date Range:</label>
+                            <select id="violation-date-range">
+                                <option value="today">Today</option>
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                                <option value="year">This Year</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="violation-type">Violation Type:</label>
+                            <select id="violation-type">
+                                <option value="all">All Violations</option>
+                                <option value="speeding">Speeding</option>
+                                <option value="red_light">Red Light</option>
+                                <option value="wrong_way">Wrong Way</option>
+                                <option value="illegal_parking">Illegal Parking</option>
+                                <option value="no_seatbelt">No Seatbelt</option>
+                            </select>
+                        </div>
+                        <button id="refresh-violations">
+                            <i class="fas fa-sync-alt"></i> Refresh Data
+                        </button>
+                    </div>
+                    
+                    <div class="card">
+                        <h3>Violation Reports</h3>
+                        <div class="table-container">
+                            <table id="violations-table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Location</th>
+                                        <th>Violation Type</th>
+                                        <th>Vehicle Plate</th>
+                                        <th>Timestamp</th>
+                                        <th>Fine Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Violations will be populated here -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    
+                    <div class="violations-summary">
+                        <div class="card">
+                            <h3>Violation Statistics</h3>
+                            <div class="stats-grid">
+                                <div class="stat-item">
+                                    <div class="stat-label">Total Violations Today</div>
+                                    <div class="stat-value">42</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">Most Common Violation</div>
+                                    <div class="stat-value">Illegal Parking</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">Total Fines Collected</div>
+                                    <div class="stat-value">RWF 840,000</div>
+                                </div>
+                                <div class="stat-item">
+                                    <div class="stat-label">Pending Violations</div>
+                                    <div class="stat-value">18</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Kigali Traffic Management System. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/violations.js"></script>
+</body>
+</html>

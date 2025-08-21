@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kigali Traffic Management System - Register</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <h1>Kigali Traffic Management System</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="monitoring.html">Monitoring</a></li>
+                        <li><a href="route-planner.html">Route Planner</a></li>
+                        <li><a href="analytics.html">Analytics</a></li>
+                        <li><a href="violations.html">Violations</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li id="authLink"><a href="login.html">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <div class="container">
+                <section id="register">
+                    <h2>Create an Account</h2>
+                    <div class="auth-form">
+                        <form id="registerForm">
+                            <div class="form-group">
+                                <label for="registerUsername">Username:</label>
+                                <input type="text" id="registerUsername" name="username" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerEmail">Email:</label>
+                                <input type="email" id="registerEmail" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="registerPassword">Password:</label>
+                                <input type="password" id="registerPassword" name="password" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="confirmPassword">Confirm Password:</label>
+                                <input type="password" id="confirmPassword" name="confirmPassword" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="userRole">User Role:</label>
+                                <select id="userRole" name="userRole">
+                                    <option value="driver">Driver</option>
+                                    <option value="administrator">Administrator</option>
+                                    <option value="traffic_officer">Traffic Officer</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="terms">
+                                    <input type="checkbox" id="terms" name="terms" required>
+                                    I agree to the <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>
+                                </label>
+                            </div>
+                            <button type="submit" id="registerButton">
+                                <i class="fas fa-user-plus"></i> Register
+                            </button>
+                        </form>
+                        <p>Already have an account? <a href="login.html">Login</a></p>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Kigali Traffic Management System. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

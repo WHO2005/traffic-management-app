@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kigali Traffic Management System - Monitoring</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <h1>Kigali Traffic Management System</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="monitoring.html">Monitoring</a></li>
+                        <li><a href="route-planner.html">Route Planner</a></li>
+                        <li><a href="analytics.html">Analytics</a></li>
+                        <li><a href="violations.html">Violations</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li id="authLink"><a href="login.html">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <div class="container">
+                <section id="monitoring">
+                    <h2>Real-time Traffic Monitoring</h2>
+                    <div class="monitoring-grid">
+                        <div class="card">
+                            <h3>Traffic Map</h3>
+                            <div class="traffic-map">
+                                <!-- Map will be rendered here -->
+                                <div class="map-content">
+                                    <div class="map-grid">
+                                        <!-- Simplified map representation for Kigali -->
+                                        <div class="map-row">
+                                            <div class="map-cell road-horizontal"></div>
+                                            <div class="map-cell road-horizontal"></div>
+                                            <div class="map-cell road-horizontal traffic-medium"></div>
+                                            <div class="map-cell road-horizontal"></div>
+                                            <div class="map-cell road-horizontal"></div>
+                                        </div>
+                                        <div class="map-row">
+                                            <div class="map-cell road-vertical"></div>
+                                            <div class="map-cell intersection"></div>
+                                            <div class="map-cell road-vertical"></div>
+                                            <div class="map-cell intersection"></div>
+                                            <div class="map-cell road-vertical"></div>
+                                        </div>
+                                        <div class="map-row">
+                                            <div class="map-cell road-horizontal"></div>
+                                            <div class="map-cell road-horizontal traffic-high"></div>
+                                            <div class="map-cell road-horizontal"></div>
+                                            <div class="map-cell road-horizontal"></div>
+                                            <div class="map-cell road-horizontal"></div>
+                                        </div>
+                                        <div class="map-row">
+                                            <div class="map-cell road-vertical"></div>
+                                            <div class="map-cell intersection"></div>
+                                            <div class="map-cell road-vertical"></div>
+                                            <div class="map-cell intersection"></div>
+                                            <div class="map-cell road-vertical"></div>
+                                        </div>
+                                        <div class="map-row">
+                                            <div class="map-cell road-horizontal"></div>
+                                            <div class="map-cell road-horizontal traffic-low"></div>
+                                            <div class="map-cell road-horizontal"></div>
+                                            <div class="map-cell road-horizontal"></div>
+                                            <div class="map-cell road-horizontal"></div>
+                                        </div>
+                                    </div>
+                                    <div class="map-legend">
+                                        <div class="legend-item">
+                                            <div class="traffic-indicator traffic-low"></div>
+                                            <span>Low Traffic</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="traffic-indicator traffic-medium"></div>
+                                            <span>Medium Traffic</span>
+                                        </div>
+                                        <div class="legend-item">
+                                            <div class="traffic-indicator traffic-high"></div>
+                                            <span>High Traffic</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>Traffic Lights Status</h3>
+                            <div class="traffic-lights-grid">
+                                <div class="traffic-light-item">
+                                    <div class="light-location">KN 3 & KN 5</div>
+                                    <div class="light-status traffic-green">Green</div>
+                                </div>
+                                <div class="traffic-light-item">
+                                    <div class="light-location">KN 1 & KN 7</div>
+                                    <div class="light-status traffic-yellow">Yellow</div>
+                                </div>
+                                <div class="traffic-light-item">
+                                    <div class="light-location">KN 2 & KN 8</div>
+                                    <div class="light-status traffic-red">Red</div>
+                                </div>
+                                <div class="traffic-light-item">
+                                    <div class="light-location">Airport Road</div>
+                                    <div class="light-status traffic-green">Green</div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>Incident Reports</h3>
+                            <div class="incident-reports">
+                                <div class="incident-item">
+                                    <div class="incident-location">KN 3 near City Center</div>
+                                    <div class="incident-type">Accident</div>
+                                    <div class="incident-time">10:30 AM</div>
+                                </div>
+                                <div class="incident-item">
+                                    <div class="incident-location">Airport Road</div>
+                                    <div class="incident-type">Road Closure</div>
+                                    <div class="incident-time">9:15 AM</div>
+                                </div>
+                                <div class="incident-item">
+                                    <div class="incident-location">Kimironko Market</div>
+                                    <div class="incident-type">Heavy Traffic</div>
+                                    <div class="incident-time">8:45 AM</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Kigali Traffic Management System. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/monitoring.js"></script>
+</body>
+</html>

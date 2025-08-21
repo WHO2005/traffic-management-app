@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kigali Traffic Management System - Route Planner</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <h1>Kigali Traffic Management System</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="monitoring.html">Monitoring</a></li>
+                        <li><a href="route-planner.html">Route Planner</a></li>
+                        <li><a href="analytics.html">Analytics</a></li>
+                        <li><a href="violations.html">Violations</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li id="authLink"><a href="login.html">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <div class="container">
+                <section id="route-planner">
+                    <h2>Route Planner</h2>
+                    <div class="route-planner-container">
+                        <div class="route-inputs">
+                            <div class="form-group">
+                                <label for="origin">Starting Point:</label>
+                                <input type="text" id="origin" placeholder="Enter your current location">
+                            </div>
+                            <div class="form-group">
+                                <label for="destination">Destination:</label>
+                                <input type="text" id="destination" placeholder="Enter your destination">
+                            </div>
+                            <button id="find-route" class="btn-primary">
+                                <i class="fas fa-route"></i> Find Best Route
+                            </button>
+                            <button id="current-location-btn" class="btn-secondary">
+                                <i class="fas fa-location-arrow"></i> Use Current Location
+                            </button>
+                        </div>
+                        
+                        <div class="route-map-container">
+                            <h3>Traffic Map</h3>
+                            <div id="route-map" class="route-map">
+                                <!-- Map will be rendered here -->
+                                <div class="map-placeholder">
+                                    <i class="fas fa-map-marked-alt"></i>
+                                    <p>Interactive traffic map for Kigali</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="route-options">
+                            <h3>Route Options</h3>
+                            <div id="route-results">
+                                <!-- Route options will be displayed here -->
+                                <div class="route-option-placeholder">
+                                    <p>Enter origin and destination to find routes</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Kigali Traffic Management System. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/route-planner.js"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kigali Traffic Management System - Settings</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <!-- Header -->
+        <header>
+            <div class="container">
+                <h1>Kigali Traffic Management System</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Dashboard</a></li>
+                        <li><a href="monitoring.html">Monitoring</a></li>
+                        <li><a href="route-planner.html">Route Planner</a></li>
+                        <li><a href="analytics.html">Analytics</a></li>
+                        <li><a href="violations.html">Violations</a></li>
+                        <li><a href="settings.html">Settings</a></li>
+                        <li id="authLink"><a href="login.html">Login</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <div class="container">
+                <section id="settings">
+                    <h2>System Settings</h2>
+                    <div class="settings-grid">
+                        <div class="card">
+                            <h3>Notification Preferences</h3>
+                            <div class="form-group">
+                                <label for="email-notifications">
+                                    <input type="checkbox" id="email-notifications" checked>
+                                    Email Notifications
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="sms-notifications">
+                                    <input type="checkbox" id="sms-notifications">
+                                    SMS Notifications
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="push-notifications">
+                                    <input type="checkbox" id="push-notifications" checked>
+                                    Push Notifications
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>Display Settings</h3>
+                            <div class="form-group">
+                                <label for="theme">Theme:</label>
+                                <select id="theme">
+                                    <option value="light">Light</option>
+                                    <option value="dark">Dark</option>
+                                    <option value="auto">Auto (Based on Time)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="language">Language:</label>
+                                <select id="language">
+                                    <option value="en">English</option>
+                                    <option value="rw">Kinyarwanda</option>
+                                    <option value="fr">French</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="map-style">Map Style:</label>
+                                <select id="map-style">
+                                    <option value="standard">Standard</option>
+                                    <option value="satellite">Satellite</option>
+                                    <option value="hybrid">Hybrid</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>Traffic Alert Settings</h3>
+                            <div class="form-group">
+                                <label for="alert-threshold">Alert Threshold:</label>
+                                <select id="alert-threshold">
+                                    <option value="low">Low (Show all alerts)</option>
+                                    <option value="medium" selected>Medium (Show important alerts)</option>
+                                    <option value="high">High (Show critical alerts only)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="alert-sound">
+                                    <input type="checkbox" id="alert-sound" checked>
+                                    Play Alert Sound
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="vibration">
+                                    <input type="checkbox" id="vibration" checked>
+                                    Vibration Alerts
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>Route Preferences</h3>
+                            <div class="form-group">
+                                <label for="preferred-route">Preferred Route Type:</label>
+                                <select id="preferred-route">
+                                    <option value="fastest">Fastest Route</option>
+                                    <option value="shortest">Shortest Route</option>
+                                    <option value="eco">Eco-Friendly Route</option>
+                                    <option value="avoid-tolls">Avoid Tolls</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="avoid-roads">Avoid Roads:</label>
+                                <input type="text" id="avoid-roads" placeholder="Enter roads to avoid (comma separated)">
+                            </div>
+                            <div class="form-group">
+                                <label for="max-walking-distance">Max Walking Distance (m):</label>
+                                <input type="number" id="max-walking-distance" value="500" min="0" max="2000">
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>System Information</h3>
+                            <div class="system-info">
+                                <p><strong>Version:</strong> 1.0.0</p>
+                                <p><strong>Last Update:</strong> August 19, 2025</p>
+                                <p><strong>Active Sensors:</strong> <span id="active-sensors">24</span></p>
+                                <p><strong>System Status:</strong> <span class="system-status">Operational</span></p>
+                            </div>
+                        </div>
+                        
+                        <div class="card">
+                            <h3>Account Settings</h3>
+                            <div class="form-group">
+                                <label for="username">Username:</label>
+                                <input type="text" id="username" value="kigali_driver">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email:</label>
+                                <input type="email" id="email" value="driver@kigalitraffic.rw">
+                            </div>
+                            <button id="save-settings">
+                                <i class="fas fa-save"></i> Save Settings
+                            </button>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <p>&copy; 2025 Kigali Traffic Management System. All rights reserved.</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/settings.js"></script>
+</body>
+</html>
